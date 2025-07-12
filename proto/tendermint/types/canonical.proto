@@ -1,0 +1,43 @@
+syntax = "proto3";
+package tendermint.types;
+
+import "tendermint/types/types.proto";
+import "google/protobuf/timestamp.proto";
+
+message CanonicalBlockID {
+  bytes                  hash            = 1;
+  CanonicalPartSetHeader part_set_header = 2;
+}
+
+message CanonicalPartSetHeader {
+  uint32 total = 1;
+  bytes  hash  = 2;
+}
+
+message CanonicalProposal {
+  SignedMsgType             type      = 1;  // type alias for byte
+  sfixed64                  height    = 2;  // canonicalization requires fixed size encoding here
+  sfixed64                  round     = 3;  // canonicalization requires fixed size encoding here
+  int64                     pol_round = 4;
+  CanonicalBlockID          block_id  = 5;
+  google.protobuf.Timestamp timestamp = 6;
+  string                    chain_id  = 7;
+}
+
+message CanonicalVote {
+  SignedMsgType             type      = 1;  // type alias for byte
+  sfixed64                  height    = 2;  // canonicalization requires fixed size encoding here
+  sfixed64                  round     = 3;  // canonicalization requires fixed size encoding here
+  CanonicalBlockID          block_id  = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  string                    chain_id  = 6;
+}
+
+// CanonicalVoteExtension provides us a way to serialize a vote extension from
+// a particular validator such that we can sign over those serialized bytes.
+message CanonicalVoteExtension {
+  bytes    extension = 1;
+  sfixed64 height    = 2;
+  sfixed64 round     = 3;
+  string   chain_id  = 4;
+}

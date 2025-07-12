@@ -1,0 +1,12 @@
+[package]
+name = "void_proto"
+version = "0.1.0"
+authors = ["sajeevan opensource <sajeevanjspy@gmail.com>"]
+edition = "2024"
+description = "void-proto is the Protobuf definitions package for the void-caster blockchain"
+readme = "README.md"
+repository = "https://github.com/sajeevanjspy/void_proto"
+license = "MIT"
+publish = false
+
+[dependencies]

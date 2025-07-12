@@ -1,6 +1,6 @@
 [package]
-name = "void_proto"
-version = "0.1.0"
+name = "void-proto"
+version = "0.1.1"
 authors = ["sajeevan opensource <sajeevanjspy@gmail.com>"]
 edition = "2024"
 description = "void-proto is the Protobuf definitions package for the void-caster blockchain"

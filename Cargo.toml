@@ -5,8 +5,13 @@ authors = ["sajeevan opensource <sajeevanjspy@gmail.com>"]
 edition = "2024"
 description = "void-proto is the Protobuf definitions package for the void-caster blockchain"
 readme = "README.md"
-repository = "https://github.com/sajeevanjspy/void_proto"
+repository = "https://github.com/sajeevanjspy/void-proto.git"
 license = "MIT"
 publish = false
 
 [dependencies]
+prost = "0.12"
+prost-types = "0.12"
+
+[build-dependencies]
+prost-build = "0.12"
